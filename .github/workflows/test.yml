@@ -1,22 +1,23 @@
 name: Test
 
 on:
-    push:
-        branches: [ main ]
-    jobs:
-        build:
-            name: Test
-            runs-on: ubuntu-latest
-            steps:
-                - uses: actions/checkout@v2
-                - uses: actions/setup-node@v2
-                  with:
-                      node-version: 20.x
-                - run: npm ci
-                working-directory: ./
-                - run: npm run test
-        branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 20.x
+      - run: npm ci
         working-directory: ./
+      - run: npm run test
+        working-directory: ./
+
 
 
     
